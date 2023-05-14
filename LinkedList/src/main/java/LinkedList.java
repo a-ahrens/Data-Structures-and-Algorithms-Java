@@ -193,13 +193,33 @@ public class LinkedList {
     }
 
     public void reverse(){
+    /* 1. reverse head and tail
+        temp functions as a temporary placeholder for the head node.
+            This allows head to shift focus to the tail node.
+            Tail node can then shift back to the temp node.
+     */
         Node temp = head;
         head = tail;
         tail = temp;
 
+    /* 2. Setup before and after markers with relation to the current temp marker
+        Temp is currently pointed at the left most node (old head location)
+        the left side of temp is nothing, so before marker should be null
+        the right side of temp, after, is the next node in the list
+
+     */
         Node after = temp.next;
         Node before = null;
 
+    /* 3. Iterate through the entire list,
+        - The before-temp-after setup will slide down the list, flipping the next values as it goes along
+            1. Shift AFTER marker to next node after temp marker
+            2. Assign current temp node's next value equal to the before marker
+            3. Shift BEFORE marker to current temp position
+            4. Shift temp marker to AFTER position
+            5. Repeat process until end of list is reached
+
+     */
         for(int i = 0; i < length; i++){
             after = temp.next;
             temp.next = before;
