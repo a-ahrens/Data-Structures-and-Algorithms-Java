@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class HashTable {
     private int size = 7;
     private Node[] dataMap;
@@ -64,5 +67,19 @@ public class HashTable {
             temp = temp.next;
         }
         return 0;       //returns 0 if the item you are searching for does not exist within the map
+    }
+
+    public List keys(){
+        List<String> allKeys = new ArrayList<>();
+        for(int i = 0; i < size; i++){
+            Node temp = dataMap[i];
+
+            while(temp != null){
+                allKeys.add(temp.key);
+                temp = temp.next;
+            }
+        }
+
+        return allKeys;
     }
 }

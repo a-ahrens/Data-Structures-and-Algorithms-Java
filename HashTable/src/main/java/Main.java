@@ -5,10 +5,14 @@ public class Main {
         ht.set("nails", 100);
         ht.set("tile", 50);
         ht.set("lumber", 80);
+        ht.set("tile", 50);
+        ht.set("lumber", 80);
 
         ht.printTable();
 
         System.out.println("Lumber: " + ht.get("lumber"));
         System.out.println("Bolts: " + ht.get("bolts"));
+
+        System.out.println("All keys: " + ht.keys());
     }
 }
