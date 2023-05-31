@@ -5,8 +5,10 @@ public class Main {
         ht.set("nails", 100);
         ht.set("tile", 50);
         ht.set("lumber", 80);
-        ht.set("tile", 50);
-        ht.set("lumber", 80);
+        ht.set("bolts", 50);
+        ht.set("screws", 80);
+
+        ht.set("screws", 2000);
 
         ht.printTable();
 

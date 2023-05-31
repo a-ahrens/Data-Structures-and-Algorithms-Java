@@ -49,10 +49,18 @@ public class HashTable {
             dataMap[index] = newNode;
         } else {
             Node temp = dataMap[index];
-            while (temp.next != null){
+
+            while (true) {
+                if (temp.key.equals(key)) {             //if it contains a matching key, then just update the value
+                    temp.value = value;
+                    break;
+                }
+
+                if(temp.next == null){                  //adds new node to the end
+                    temp.next = newNode;
+                }
                 temp = temp.next;
             }
-            temp.next = newNode;
         }
     }
 
