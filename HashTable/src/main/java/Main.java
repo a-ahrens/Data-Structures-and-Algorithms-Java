@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -28,6 +30,7 @@ public class Main {
         int[] array1 = {1,3,5};
         int[] array2 = {2,4,5};
         int[] array3 = {7,8,9};
+        List<Integer> list = new ArrayList<>();
 
         System.out.println("Array 1 & Array2: " + iq.hasItemInCommon(array1, array2));
         System.out.println("Array 1 & Array3: " + iq.hasItemInCommon(array1, array3));
