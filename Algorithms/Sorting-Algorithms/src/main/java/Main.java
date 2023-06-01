@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
         int[] array = {4,2,6,5,1,3};
         System.out.println("Not sorted: " + Arrays.toString(array));
-        selectionSort(array);
+        insertionSort(array);
         System.out.println("Sorted: " + Arrays.toString(array));
     }
 
@@ -32,6 +32,19 @@ public class Main {
                 int temp = array[minIndex];
                 array[minIndex] = array[i];
                 array[i] = temp;
+            }
+        }
+    }
+
+    public static void insertionSort(int[] array){
+        for(int i = 1; i < array.length; i++){              //starting with the 2nd number and looking backwards
+            int temp = array[i];                            //obtains a temp copy of current value at index (i)
+            int j = i - 1;                                  //represents the location to start the comparison with the temp value (currently index i)
+
+            while(j > -1 && temp < array[j]){               //j > -1 must be placed first in order to ensure an out of bounds exception does not occur
+                array[j+1] = array[j];                      //we must use j+1 here because the location of the temp value we are comparing may no longer be at the original at index of i
+                array[j] = temp;                          
+                j--;
             }
         }
     }
