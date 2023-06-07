@@ -2,10 +2,21 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        int[] array = {4,2,6,5,1,3};
-        System.out.println("Not sorted: " + Arrays.toString(array));
-        insertionSort(array);
-        System.out.println("Sorted: " + Arrays.toString(array));
+//        int[] array = {4,2,6,5,1,3};
+//        System.out.println("Not sorted: " + Arrays.toString(array));
+//        insertionSort(array);
+//        System.out.println("Sorted: " + Arrays.toString(array));
+
+//        int[] array1 = {1, 3, 7, 8};
+//        int[] array2 = {2, 4, 5, 6};
+//
+//        System.out.println(Arrays.toString(MergeSort.merge(array1,array2)));
+
+        int[] originalArray = {3, 1, 4, 2};
+        int[] sortedArray = MergeSort.mergeSort(originalArray);
+
+        System.out.println("Original array: " + Arrays.toString(originalArray));
+        System.out.println("Sorted array: " + Arrays.toString(sortedArray));
     }
 
     public static void bubbleSort(int[] array){
