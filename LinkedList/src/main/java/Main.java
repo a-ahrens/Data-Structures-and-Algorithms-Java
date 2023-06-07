@@ -45,5 +45,9 @@ public class Main {
         newList.reverse();
         newList.printList();
 
+        System.out.println("Insertion Sort the list");
+        newList.insertionSort();
+        newList.printList();
+
     }
 }

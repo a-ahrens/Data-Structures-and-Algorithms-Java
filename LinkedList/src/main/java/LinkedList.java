@@ -241,4 +241,62 @@ public class LinkedList {
         }
         System.out.println();
     }
+
+    /* Interview Question - Insertion Sort of LL
+        Write an insertionSort method that sorts a singly linked list in ascending order using the insertion sort algorithm.
+        The method should take no arguments
+    */
+
+    public void insertionSort(){
+        Node sortedHead = head;                     //take the first item in the list to begin sorting
+        Node unsortedHead = head.next;              //this marker points at the remaining numbers that haven't been sorted yet
+        sortedHead.next = null;                     //breaks the first item away from the unsorted List
+
+        /* we are going to iterate through the unsorted list, and perform the following steps
+           - mark the current node to be checked in the unsorted list
+           - move the unsortedHead marker forward one node until there are no more Nodes to check
+           - placing the current Node within the sortedList
+        */
+        while(unsortedHead != null){
+            Node current = unsortedHead;
+            unsortedHead = unsortedHead.next;
+
+            if(current.value < sortedHead.value){
+                current.next = sortedHead;          //current Node is moved to the front of the sorted list
+                sortedHead = current;               //current Node is marked as the new head of the sorted list
+
+            } else {
+
+                /* Here, we need to determine where to place the Node within the sortedList
+                   - a temp Node marks the position as we iterate through the sortedList
+                   - we need to determine one of two things
+                     1. is temp located at the end of the list? (in this case, temp.next == null)
+                            if so, we will simply add the new Node to the end of the sortedList
+                     2. is temp's next node's value < the current node's value?
+                            if it is NOT, then we have determined that this location of temp is where we need to put the current node
+                            (between temp and temp.next)
+                 */
+
+                Node temp = sortedHead;
+                while (temp.next != null && current.value > temp.next.value) {
+                    temp = temp.next;
+                }
+
+                current.next = temp.next;
+                temp.next = current;
+            }
+        }
+        //at this point, the list has been sorted, now we need to reassign the LinkedList's head and tail properties
+
+        head = sortedHead;      //head is easy because we already have a marker assigned to it.
+
+        //traverse the list until you hit the end to find the new tail location
+        Node temp = head;
+        while(temp.next != null){
+            temp = temp.next;
+        }
+
+        tail = temp;
+
+    }
 }

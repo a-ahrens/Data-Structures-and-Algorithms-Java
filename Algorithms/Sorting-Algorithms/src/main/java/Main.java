@@ -43,9 +43,11 @@ public class Main {
 
             while(j > -1 && temp < array[j]){               //j > -1 must be placed first in order to ensure an out of bounds exception does not occur
                 array[j+1] = array[j];                      //we must use j+1 here because the location of the temp value we are comparing may no longer be at the original at index of i
-                array[j] = temp;                          
+                array[j] = temp;
                 j--;
             }
         }
     }
+
+
 }
