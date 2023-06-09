@@ -21,7 +21,7 @@ public class Main {
 //        testing QuickSort algorithm
         int[] myArray = {10,1,9,2,3,4,6,5,1};
         System.out.println("Original array: " + Arrays.toString(myArray));
-        QuickSort.quickSort(myArray, 0, myArray.length - 1);
+        QuickSort.quickSort(myArray);
 
         System.out.println(Arrays.toString(myArray));
     }
