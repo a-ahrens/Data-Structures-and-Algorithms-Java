@@ -12,11 +12,18 @@ public class Main {
 //
 //        System.out.println(Arrays.toString(MergeSort.merge(array1,array2)));
 
-        int[] originalArray = {3, 1, 4, 2};
-        int[] sortedArray = MergeSort.mergeSort(originalArray);
+//        int[] originalArray = {3, 1, 4, 2};
+//        int[] sortedArray = MergeSort.mergeSort(originalArray);
+//
+//        System.out.println("Original array: " + Arrays.toString(originalArray));
+//        System.out.println("Sorted array: " + Arrays.toString(sortedArray));
 
-        System.out.println("Original array: " + Arrays.toString(originalArray));
-        System.out.println("Sorted array: " + Arrays.toString(sortedArray));
+//        testing QuickSort algorithm
+        int[] myArray = {10,1,9,2,3,4,6,5,1};
+        System.out.println("Original array: " + Arrays.toString(myArray));
+        QuickSort.quickSort(myArray, 0, myArray.length - 1);
+
+        System.out.println(Arrays.toString(myArray));
     }
 
     public static void bubbleSort(int[] array){

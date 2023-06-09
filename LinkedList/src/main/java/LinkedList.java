@@ -308,7 +308,7 @@ public class LinkedList {
     */
 
     public void merge(LinkedList otherList){
-        
+
         /*
             - The dummy variable is a random meaningless node we build off of when constructing the merged linked list
                 - The idea is that once the Linked Lists have been merged, we will break the new Linked List away from the dummy node
