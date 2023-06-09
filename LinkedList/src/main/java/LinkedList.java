@@ -299,4 +299,46 @@ public class LinkedList {
         tail = temp;
 
     }
+
+    /* Interview Question - Merge Two Sorted Lists
+        Write a merge() method that takes in a Linked List, merges it with the currently targeted Linked List with all values in ascending order.
+        Assume both Linked Lists are presorted.
+        The method should take one Singly Linked List as an argument
+        The method should not return a value. Modifies the current Linked List to contain the merged list
+    */
+
+    public void merge(LinkedList otherList){
+        
+        /*
+            - The dummy variable is a random meaningless node we build off of when constructing the merged linked list
+                - The idea is that once the Linked Lists have been merged, we will break the new Linked List away from the dummy node
+
+            - The current node functions as a marker for where the most recent node was added to the dummy chain
+                - It's initially based off the dummy variable but follows the last Node that was compared and added to the mergedLinked list
+
+            - The otherHead node acts as a moving marker for the otherList as Nodes from its list are added to the dummy chain
+        */
+        Node dummy = new Node(0);
+        Node current = dummy;
+        Node otherHead = otherList.getHead();
+
+        while(head != null && otherHead != null){               //as long as there are nodes remaining in both lists
+            if(head.value < otherHead.value){
+                current.next = head;                            //points the dummy chain at the next node in line
+                head = head.next;                               //we move the head on the current list forward in order to remove this node from the original chain
+            } else {
+                current.next = otherHead;                       //points the dummy chain at the next node from the otherList
+                otherHead = otherHead.next;                     //we can't move the otherList's actual head from within the current list's class, so we just move the temp pointer instead
+            }
+            current = current.next;                             //move the current node to mark the latest addition to the dummy list
+        }
+
+        if(head != null) {
+            current.next = head;                        //if the current list has nodes remaining, we point the node at the current head and it connects the rest of the chain to dummy
+        } else {
+            current.next = otherHead;                   //if the other List has nodes remaining, we point the node at the temp marker 'otherHead' and it connects the rest of the chain to dummy
+            tail = otherList.getTail();                 //reorient the current LL's tail to point at the tail of the otherList
+        }
+        head = dummy.next;                              //reorient the current LL's head to the next Node after the dummy. The dummy will be detached upon return.
+    }
 }
