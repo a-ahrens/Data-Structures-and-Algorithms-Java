@@ -19,7 +19,7 @@ public class Main {
 //        System.out.println("Sorted array: " + Arrays.toString(sortedArray));
 
 //        testing QuickSort algorithm
-        int[] myArray = {10,1,9,2,3,4,6,5,1};
+        int[] myArray = {4,6,1,7,3,2,5};
         System.out.println("Original array: " + Arrays.toString(myArray));
         QuickSort.quickSort(myArray);
 
